@@ -1,5 +1,10 @@
 # Guessing game
 
+### Dependencies
+`[dependencies]` in `Cargo.toml` just like `[package]`: all the contents will be part of the label.
+
+`[dependencies]` content dependencies and their versions. when we build our project, it will download the dependencies our project need.
+
 ### extern crate rand and rand:: Rng
 
 ```rust
