@@ -24,3 +24,4 @@ fn diverges() -> ! {
 // Point
 let f: fn(i32) -> i32 = plus_one;
 let f = plus_one;
+
