@@ -1,7 +1,6 @@
 [package]
-name = "guessing_game"
+name = "_self"
 version = "0.1.0"
 authors = ["mercury <udtrokia@163.com>"]
 
 [dependencies]
-rand = "0.3.0"
