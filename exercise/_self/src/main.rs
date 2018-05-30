@@ -1,14 +1,18 @@
 #[derive(Debug)]
-struct David { bowie: String } // Here is no `;`, not a sentence.
+
+struct Foo { dis: String } // Here is no `;`, not a sentence.
 
 impl Foo {
-    fn main (self) {
-        println!{"{:?}", self};
-        println!{"{:?}", &self};
+    fn main (&self) {
+        let bar:&Foo = self;
+        println!("{:?}", bar.dis);
+        println!{"{:?}", bar};
+        println!{"{:?}", bar};
     }
 }
 
 fn main() {
-    let foo: Go = Go { dis: "David".to_string() };
+    let foo: Foo = Foo { dis: "David".to_string() };
     foo.main()
 }
+
