@@ -2,6 +2,8 @@
 
 ## What is Bytes
 
+### u8 and Bytes and Slices and Vec.
+
 ### std::str::Bytes
 
 #### String.bytes()
@@ -16,6 +18,14 @@ println!("{:?}", b1);
 
 ```
 
+#### String.into_bytes
+`pub fn into_bytes(self) -> Vec<u8>`
+Converts a String into a byte vector.
+
+```rust
+Converts a String into a byte vector.
+```
+
 #### String.as_bytes
 `pub fn as_bytes(&self) -> &[u8]`
 Converts a string slice to a byte slice. 
@@ -27,7 +37,6 @@ println!("{:?}", b2);
 // [115, 116, 114]
 
 ```
-
 
 ### bytes::Bytes
 `pub struct Bytes {/* fields omitted */}`

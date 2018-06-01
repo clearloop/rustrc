@@ -43,3 +43,16 @@ I always confuse about, go or rust. now and now, whatever I learn, I use. It's j
 ### 如无法实现 Copy 特性，是否能够通过闭包替代
 
 ### closure `move` 特性
+
+## Andy | Neptune
+
+### &str && String
+
+### u8 && sclice && Vector && arr 
+
+### mut && Copy trait && Clone
+
+### lifecircle?
+
+### Iterator invalidation && use after release
+
