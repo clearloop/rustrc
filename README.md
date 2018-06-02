@@ -44,6 +44,8 @@ I always confuse about, go or rust. now and now, whatever I learn, I use. It's j
 
 ### closure `move` 特性
 
+### 借用 与 Copy 的取舍
+
 ## Andy | Neptune
 
 ### &str && String
@@ -56,3 +58,6 @@ I always confuse about, go or rust. now and now, whatever I learn, I use. It's j
 
 ### Iterator invalidation && use after release
 
+### String.into_bytes() 的长度远大于 BigInt_from_bytes(![x.into_bytes()]) []中?
+
+### BigInt_from(int > i32) 后转为字符串爆内存问题

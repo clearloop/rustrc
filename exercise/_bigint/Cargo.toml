@@ -1,0 +1,10 @@
+[package]
+name = "tmp"
+version = "0.1.0"
+authors = ["mercury <udtrokia@gmail.com>"]
+
+[dependencies]
+sha2 = "0.7.1"
+hex-slice = "0.1.4"
+num-bigint = "0.2"
+num = "0.1"
