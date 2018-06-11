@@ -81,3 +81,15 @@ I always confuse about, go or rust. now and now, whatever I learn, I use. It's j
 #### &Vec<u8> = &[u8], &String = &str --- 多态
 
 #### What is the type of hash bytes? Bianary? Octal? Hex?
+
+#### Slice and &[u8] and Vec<u8> and hex, Binary, ??
+
+#### Rust 动态打印
+
+#### [Rust slower](1)
+
+## Schulz
+
+#### What is Some() && Ok?
+
+[1]:https://www.reddit.com/r/rust/comments/7w3v77/why_is_my_rust_code_100x_slower_than_python/
