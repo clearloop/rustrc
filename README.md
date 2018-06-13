@@ -98,4 +98,6 @@ I always confuse about, go or rust. now and now, whatever I learn, I use. It's j
 
 #### Loop - iter() and enumrate().
 
+#### 强制转换 int 类型问题
+
 [1]:https://www.reddit.com/r/rust/comments/7w3v77/why_is_my_rust_code_100x_slower_than_python/
