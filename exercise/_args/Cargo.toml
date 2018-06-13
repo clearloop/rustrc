@@ -1,0 +1,8 @@
+[package]
+name = "_args"
+version = "0.1.0"
+authors = ["mercury <udtrokia@gmail.com>"]
+
+[dependencies]
+args = "2.0"
+getopts = "0.2.17"
