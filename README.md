@@ -1,13 +1,9 @@
-# Yellow Brick Road
+# Rustrc
 
 ![hero](./assets/hero-bg.jpg)
 
-So, 2 years after that. I've done nothing, onthing at all.
-
-I always confuse about, go or rust. now and now, whatever I learn, I use. It's just a language.
-
 <br>
-## Basquiat | Pluto
+## Basquiat
 <br>
 
 #### 如何为结构体添加方法？
@@ -49,8 +45,8 @@ I always confuse about, go or rust. now and now, whatever I learn, I use. It's j
 #### 借用 与 Copy 的取舍
 
 <br>
-## Andy | Neptune
-1;95;0c<br>
+## Andy 
+<br>
 
 #### &str && String
 
