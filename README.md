@@ -50,7 +50,7 @@ I always confuse about, go or rust. now and now, whatever I learn, I use. It's j
 
 <br>
 ## Andy | Neptune
-<br>
+1;95;0c<br>
 
 #### &str && String
 
@@ -112,10 +112,19 @@ I always confuse about, go or rust. now and now, whatever I learn, I use. It's j
 
 #### What the fuck of to_owned??? really awesome!!
 
+#### what the fuck of .to_owned and borrow?
+
 #### &mut
 
 #### figure loop loop errorrrrr
 
 #### Options and Reuslt
+
+#### What is UTXO? to verify one transaction, input first or output first... lol
+
+We need to find all unspent transaction outputs (UTXO). Unspent means that these outputs weren’t referenced in any inputs. 
+
+
+#### 
 
 [1]:https://www.reddit.com/r/rust/comments/7w3v77/why_is_my_rust_code_100x_slower_than_python/
