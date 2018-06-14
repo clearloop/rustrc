@@ -100,4 +100,22 @@ I always confuse about, go or rust. now and now, whatever I learn, I use. It's j
 
 #### 强制转换 int 类型问题
 
+#### cannot move out of indexed content. When you use an index operator ([]) you get the actual object at index location. You do not get a reference, pointer or copy. 
+
+#### out_idx 超出 i32 ?
+
+#### About rust vector append, what is &Struct? 
+
+#### mut is not only &COPY; even a TYPE;
+
+#### How do I copy a String from a &String while iterating through a Vector?
+
+#### What the fuck of to_owned??? really awesome!!
+
+#### &mut
+
+#### figure loop loop errorrrrr
+
+#### Options and Reuslt
+
 [1]:https://www.reddit.com/r/rust/comments/7w3v77/why_is_my_rust_code_100x_slower_than_python/
