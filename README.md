@@ -138,4 +138,6 @@ _unspent_outputs.remove(&in_txid);
 
 #### Hashmap get return a refference?
 
+#### loop name and 'static lifecycle??
+
 [1]:https://www.reddit.com/r/rust/comments/7w3v77/why_is_my_rust_code_100x_slower_than_python/
