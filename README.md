@@ -121,6 +121,21 @@
 We need to find all unspent transaction outputs (UTXO). Unspent means that these outputs weren’t referenced in any inputs. 
 
 
-#### 
+#### How to check if hashmap contains a key rust
+
+#### Hashmap entry
+
+#### How can I convert None Type. is some() - is_none()
+
+#### how to counteract immutable borrow and mutable
+
+important to\_owned()
+```rust
+let mut _trans = _unspent_outputs.get(&in_txid).unwrap().to_owned();
+//??? _trans.append(&mut vec![(_out_idx as i32)]);
+_unspent_outputs.remove(&in_txid);
+```
+
+#### Hashmap get return a refference?
 
 [1]:https://www.reddit.com/r/rust/comments/7w3v77/why_is_my_rust_code_100x_slower_than_python/
