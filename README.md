@@ -138,6 +138,32 @@ _unspent_outputs.remove(&in_txid);
 
 #### Hashmap get return a refference?
 
-#### loop name and 'static lifecycle??
+#### loop name and 'static lifecycle?
+
+#### How to iterate through a Hashmap, print the key/value and remove?
+
+#### loop -> to_owned string & Vec || clone ????
+
+#### hasher.result() to String -> `hex::encode(hasher.result())`
+
+#### Loop and scope - let; change the define while loop? iterator.
+
+without enumrate() directly.
+
+#### about TXInput and TXOutput, 
+
+```rust
+type TXInput struct {
+    tx_id: Vec<u8>, // hash id, one transfer.
+    vout: Vec<u8>, // value out
+    script_sig:  // from whom? 
+}
+
+type TXOutpt struct {
+    value: i32,
+    scriptpubkey: // to whom? 
+}
+
+```
 
 [1]:https://www.reddit.com/r/rust/comments/7w3v77/why_is_my_rust_code_100x_slower_than_python/

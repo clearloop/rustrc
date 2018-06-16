@@ -266,7 +266,34 @@
 <h4 id="options-and-reuslt">Options and Reuslt</h4>
 <h4 id="what-is-utxo-to-verify-one-transaction-input-first-or-output-first-lol">What is UTXO? to verify one transaction, input first or output first... lol</h4>
 <p>We need to find all unspent transaction outputs (UTXO). Unspent means that these outputs weren&#x2019;t referenced in any inputs. </p>
-<h4 id=""> </h4>
+<h4 id="how-to-check-if-hashmap-contains-a-key-rust">How to check if hashmap contains a key rust</h4>
+<h4 id="hashmap-entry">Hashmap entry</h4>
+<h4 id="how-can-i-convert-none-type-is-some---isnone">How can I convert None Type. is some() - is_none()</h4>
+<h4 id="how-to-counteract-immutable-borrow-and-mutable">how to counteract immutable borrow and mutable</h4>
+<p>important to_owned()</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> _trans = _unspent_outputs.get(&amp;in_txid).unwrap().to_owned();
+<span class="hljs-comment">//??? _trans.append(&amp;mut vec![(_out_idx as i32)]);</span>
+_unspent_outputs.remove(&amp;in_txid);
+</code></pre>
+<h4 id="hashmap-get-return-a-refference">Hashmap get return a refference?</h4>
+<h4 id="loop-name-and-static-lifecycle">loop name and &apos;static lifecycle?</h4>
+<h4 id="how-to-iterate-through-a-hashmap-print-the-keyvalue-and-remove">How to iterate through a Hashmap, print the key/value and remove?</h4>
+<h4 id="loop---toowned-string--vec--clone-">loop -&gt; to_owned string &amp; Vec || clone ????</h4>
+<h4 id="hasherresult-to-string---hexencodehasherresult">hasher.result() to String -&gt; <code>hex::encode(hasher.result())</code></h4>
+<h4 id="loop-and-scope---let-change-the-define-while-loop-iterator">Loop and scope - let; change the define while loop? iterator.</h4>
+<p>without enumrate() directly.</p>
+<h4 id="about-txinput-and-txoutput">about TXInput and TXOutput,</h4>
+<pre><code class="lang-rust"><span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">TXInput</span></span> <span class="hljs-class"><span class="hljs-keyword">struct</span> {</span>
+    tx_id: <span class="hljs-built_in">Vec</span>&lt;<span class="hljs-keyword">u8</span>&gt;, <span class="hljs-comment">// hash id, one transfer.</span>
+    vout: <span class="hljs-built_in">Vec</span>&lt;<span class="hljs-keyword">u8</span>&gt;, <span class="hljs-comment">// value out</span>
+    script_sig:  <span class="hljs-comment">// from whom? </span>
+}
+
+<span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">TXOutpt</span></span> <span class="hljs-class"><span class="hljs-keyword">struct</span> {</span>
+    value: <span class="hljs-keyword">i32</span>,
+    scriptpubkey: <span class="hljs-comment">// to whom? </span>
+}
+</code></pre>
 
                                 
                                 </section>
@@ -306,7 +333,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Getting Start","level":"1.2","depth":1,"path":"src/getting_start/README.md","ref":"src/getting_start/README.md","articles":[{"title":"Guessing_game","level":"1.2.1","depth":2,"path":"src/guessing_game/README.md","ref":"src/guessing_game/README.md","articles":[]},{"title":"Syntax_Semantics","level":"1.2.2","depth":2,"path":"src/syntax_semantics/README.md","ref":"src/syntax_semantics/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-06-14T13:34:15.482Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-14T13:34:34.152Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Getting Start","level":"1.2","depth":1,"path":"src/getting_start/README.md","ref":"src/getting_start/README.md","articles":[{"title":"Guessing_game","level":"1.2.1","depth":2,"path":"src/guessing_game/README.md","ref":"src/guessing_game/README.md","articles":[]},{"title":"Syntax_Semantics","level":"1.2.2","depth":2,"path":"src/syntax_semantics/README.md","ref":"src/syntax_semantics/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-06-16T08:38:47.921Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-16T09:25:24.858Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
