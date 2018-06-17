@@ -294,7 +294,57 @@ _unspent_outputs.remove(&amp;in_txid);
     scriptpubkey: <span class="hljs-comment">// to whom? </span>
 }
 </code></pre>
+<h2 id="vincent">Vincent</h2>
+<p>Every transaction input in Bitcoin is signed by the one who created the transaction. Every transaction in Bitcoin must be verified before being put in a block. Verification means (besides other procedures):</p>
+<ol>
+<li>Checking that inputs have permission to use outputs from previous transactions.</li>
+<li>Checking that the transaction signature is correct.</li>
+</ol>
+<h4 id="rust-what-for-">RUST what for &amp;.?</h4>
+<h4 id="digest">digest</h4>
+<h4 id="vec-generic-array">Vec<u8>, generic array.</u8></h4>
+<h4 id="mut-and-borrow-">&amp;mut and borrow, ||</h4>
+<h4 id="secp256k1----invaild-signature--invalid-secretkey">secp256k1 -- invaild signature &amp;&amp; invalid SecretKey</h4>
+<pre><code class="lang-rust"><span class="hljs-keyword">let</span> signatrue = 
+    [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>,
+    <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>,
+    <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>,
+    <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>];
+</code></pre>
+<h4 id="why-1-first-ripemd160--sha256-checksum">why 1 first, ripemd160 &amp;&amp; sha256. checksum...</h4>
+<h4 id="&#x5E76;&#x4E0D;&#x662F;&#x52A8;&#x6001;&#x7684;&#xFF0C;&#x800C;&#x662F;&#x53E0;&#x52A0;&#x7684;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;how-many-things-can-save-time-do">&#x5E76;&#x4E0D;&#x662F;&#x52A8;&#x6001;&#x7684;&#xFF0C;&#x800C;&#x662F;&#x53E0;&#x52A0;&#x7684;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;how many things can save time do?</h4>
+<h4 id="hashpubkey-version-checksum-address">hash_pubkey, version, checksum, address</h4>
+<p>Method: </p>
+<pre><code>address = version + hash_pubkey + checksum;
+version = self definedl
+hash_pubkey = hash(pubkey);
+checksum = hash(version + pubkey_hash);
+</code></pre><pre><code class="lang-rust">pubkey_hash = [<span class="hljs-number">196</span>, <span class="hljs-number">220</span>, <span class="hljs-number">32</span>, <span class="hljs-number">216</span>, <span class="hljs-number">82</span>, <span class="hljs-number">18</span>, <span class="hljs-number">196</span>, <span class="hljs-number">122</span>, <span class="hljs-number">16</span>, <span class="hljs-number">158</span>, <span class="hljs-number">28</span>, <span class="hljs-number">75</span>, <span class="hljs-number">134</span>, <span class="hljs-number">199</span>, <span class="hljs-number">246</span>, <span class="hljs-number">127</span>, <span class="hljs-number">50</span>, <span class="hljs-number">124</span>, <span class="hljs-number">167</span>, <span class="hljs-number">167</span>];
 
+checksum = [<span class="hljs-number">75</span>, <span class="hljs-number">99</span>, <span class="hljs-number">204</span>, <span class="hljs-number">243</span>, <span class="hljs-number">218</span>, <span class="hljs-number">192</span>, <span class="hljs-number">67</span>, <span class="hljs-number">109</span>, <span class="hljs-number">192</span>, <span class="hljs-number">233</span>, <span class="hljs-number">22</span>, <span class="hljs-number">129</span>, <span class="hljs-number">5</span>, <span class="hljs-number">253</span>, <span class="hljs-number">118</span>, <span class="hljs-number">64</span>, <span class="hljs-number">49</span>, <span class="hljs-number">124</span>, <span class="hljs-number">220</span>, <span class="hljs-number">59</span>, <span class="hljs-number">182</span>, <span class="hljs-number">1</span>, <span class="hljs-number">124</span>, <span class="hljs-number">160</span>, <span class="hljs-number">102</span>, <span class="hljs-number">192</span>, <span class="hljs-number">126</span>, <span class="hljs-number">188</span>, <span class="hljs-number">19</span>, <span class="hljs-number">158</span>, <span class="hljs-number">255</span>, <span class="hljs-number">55</span>];
+
+address = [<span class="hljs-number">0</span>, <span class="hljs-number">196</span>, <span class="hljs-number">220</span>, <span class="hljs-number">32</span>, <span class="hljs-number">216</span>, <span class="hljs-number">82</span>, <span class="hljs-number">18</span>, <span class="hljs-number">196</span>, <span class="hljs-number">122</span>, <span class="hljs-number">16</span>, <span class="hljs-number">158</span>, <span class="hljs-number">28</span>, <span class="hljs-number">75</span>, <span class="hljs-number">134</span>, <span class="hljs-number">199</span>, <span class="hljs-number">246</span>, <span class="hljs-number">127</span>, <span class="hljs-number">50</span>, <span class="hljs-number">124</span>, <span class="hljs-number">167</span>, <span class="hljs-number">167</span>, <span class="hljs-number">75</span>, <span class="hljs-number">99</span>, <span class="hljs-number">204</span>, <span class="hljs-number">243</span>, <span class="hljs-number">218</span>, <span class="hljs-number">192</span>, <span class="hljs-number">67</span>, <span class="hljs-number">109</span>, <span class="hljs-number">192</span>, <span class="hljs-number">233</span>, <span class="hljs-number">22</span>, <span class="hljs-number">129</span>, <span class="hljs-number">5</span>, <span class="hljs-number">253</span>, <span class="hljs-number">118</span>, <span class="hljs-number">64</span>, <span class="hljs-number">49</span>, <span class="hljs-number">124</span>, <span class="hljs-number">220</span>, <span class="hljs-number">59</span>, <span class="hljs-number">182</span>, <span class="hljs-number">1</span>, <span class="hljs-number">124</span>, <span class="hljs-number">160</span>, <span class="hljs-number">102</span>, <span class="hljs-number">192</span>, <span class="hljs-number">126</span>, <span class="hljs-number">188</span>, <span class="hljs-number">19</span>, <span class="hljs-number">158</span>, <span class="hljs-number">255</span>, <span class="hljs-number">55</span>];
+</code></pre>
+<p>test: </p>
+<pre><code class="lang-rust"><span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> version = <span class="hljs-built_in">vec!</span>[<span class="hljs-number">00</span>];
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> pubkey_hash = hash_pubkey(<span class="hljs-keyword">self</span>.pub_key.to_owned());
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> _test = pubkey_hash.to_owned();
+_test.remove(<span class="hljs-number">1</span>);_test.resize(<span class="hljs-number">19</span>,<span class="hljs-number">0</span>);
+<span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;pubkey_hash: {:?}&quot;</span>, &amp;pubkey_hash);
+version.append(&amp;<span class="hljs-keyword">mut</span> pubkey_hash);
+
+<span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> checksum = check_sum(version.to_owned());
+version.append(&amp;<span class="hljs-keyword">mut</span> checksum);
+<span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;version: {:?}&quot;</span>, &amp;version);
+<span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;pubhash_key: {:?}&quot;</span>, &amp;_test);
+<span class="hljs-keyword">let</span> address = version.to_base58();
+<span class="hljs-keyword">return</span> address.into_bytes();
+</code></pre>
+<p>print:</p>
+<pre><code>pubkey_hash: [81, 181, 97, 115, 109, 51, 20, 80, 181, 169, 147, 240, 241, 26, 13, 22, 205, 131, 132, 65]
+version: [0, 81, 181, 97, 115, 109, 51, 20, 80, 181, 169, 147, 240, 241, 26, 13, 22, 205, 131, 132, 65, 115, 168, 105, 177, 115, 215, 185, 22, 45, 53, 195, 219, 58, 6, 171, 73, 147, 111, 193, 78, 249, 112, 160, 175, 71, 221, 116, 214, 138, 56, 219, 27]
+pubhash_key: [81, 97, 115, 109, 51, 20, 80, 181, 169, 147, 240, 241, 26, 13, 22, 205, 131, 132, 65]
+</code></pre>
                                 
                                 </section>
                             
@@ -333,7 +383,7 @@ _unspent_outputs.remove(&amp;in_txid);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Getting Start","level":"1.2","depth":1,"path":"src/getting_start/README.md","ref":"src/getting_start/README.md","articles":[{"title":"Guessing_game","level":"1.2.1","depth":2,"path":"src/guessing_game/README.md","ref":"src/guessing_game/README.md","articles":[]},{"title":"Syntax_Semantics","level":"1.2.2","depth":2,"path":"src/syntax_semantics/README.md","ref":"src/syntax_semantics/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-06-16T08:38:47.921Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-16T09:25:24.858Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Getting Start","level":"1.2","depth":1,"path":"src/getting_start/README.md","ref":"src/getting_start/README.md","articles":[{"title":"Guessing_game","level":"1.2.1","depth":2,"path":"src/guessing_game/README.md","ref":"src/guessing_game/README.md","articles":[]},{"title":"Syntax_Semantics","level":"1.2.2","depth":2,"path":"src/syntax_semantics/README.md","ref":"src/syntax_semantics/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-06-17T11:23:51.392Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-17T11:24:09.106Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

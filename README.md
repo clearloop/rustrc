@@ -166,4 +166,77 @@ type TXOutpt struct {
 
 ```
 
+## Vincent
+
+Every transaction input in Bitcoin is signed by the one who created the transaction. Every transaction in Bitcoin must be verified before being put in a block. Verification means (besides other procedures):
+
+1. Checking that inputs have permission to use outputs from previous transactions.
+2. Checking that the transaction signature is correct.
+
+#### RUST what for &.?
+
+#### digest
+
+#### Vec<u8>, generic array.
+
+#### &mut and borrow, || 
+
+#### secp256k1 -- invaild signature && invalid SecretKey
+
+```rust
+let signatrue = 
+    [0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 1];
+```
+
+#### why 1 first, ripemd160 && sha256. checksum...
+
+#### 并不是动态的，而是叠加的一种方法，how many things can save time do?
+
+#### hash_pubkey, version, checksum, address
+
+Method: 
+```
+address = version + hash_pubkey + checksum;
+version = self definedl
+hash_pubkey = hash(pubkey);
+checksum = hash(version + pubkey_hash);
+```
+
+```rust
+pubkey_hash = [196, 220, 32, 216, 82, 18, 196, 122, 16, 158, 28, 75, 134, 199, 246, 127, 50, 124, 167, 167];
+
+checksum = [75, 99, 204, 243, 218, 192, 67, 109, 192, 233, 22, 129, 5, 253, 118, 64, 49, 124, 220, 59, 182, 1, 124, 160, 102, 192, 126, 188, 19, 158, 255, 55];
+
+address = [0, 196, 220, 32, 216, 82, 18, 196, 122, 16, 158, 28, 75, 134, 199, 246, 127, 50, 124, 167, 167, 75, 99, 204, 243, 218, 192, 67, 109, 192, 233, 22, 129, 5, 253, 118, 64, 49, 124, 220, 59, 182, 1, 124, 160, 102, 192, 126, 188, 19, 158, 255, 55];
+
+```
+
+test: 
+
+```rust
+let mut version = vec![00];
+let mut pubkey_hash = hash_pubkey(self.pub_key.to_owned());
+let mut _test = pubkey_hash.to_owned();
+_test.remove(1);_test.resize(19,0);
+println!("pubkey_hash: {:?}", &pubkey_hash);
+version.append(&mut pubkey_hash);
+
+let mut checksum = check_sum(version.to_owned());
+version.append(&mut checksum);
+println!("version: {:?}", &version);
+println!("pubhash_key: {:?}", &_test);
+let address = version.to_base58();
+return address.into_bytes();
+```
+
+print:
+```
+pubkey_hash: [81, 181, 97, 115, 109, 51, 20, 80, 181, 169, 147, 240, 241, 26, 13, 22, 205, 131, 132, 65]
+version: [0, 81, 181, 97, 115, 109, 51, 20, 80, 181, 169, 147, 240, 241, 26, 13, 22, 205, 131, 132, 65, 115, 168, 105, 177, 115, 215, 185, 22, 45, 53, 195, 219, 58, 6, 171, 73, 147, 111, 193, 78, 249, 112, 160, 175, 71, 221, 116, 214, 138, 56, 219, 27]
+pubhash_key: [81, 97, 115, 109, 51, 20, 80, 181, 169, 147, 240, 241, 26, 13, 22, 205, 131, 132, 65]
+```
+
 [1]:https://www.reddit.com/r/rust/comments/7w3v77/why_is_my_rust_code_100x_slower_than_python/
