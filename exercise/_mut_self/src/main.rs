@@ -2,7 +2,6 @@
 use std::borrow::ToOwned;
 #[derive(Debug)]
 struct H {
-
     a: String,
 }
 impl H {

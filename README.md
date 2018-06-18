@@ -279,7 +279,7 @@ const CONFIG_DATA: &'static [u8] = &[
 + `vec![0;32]` -- struct doesn't have value;
 + `vec![]` -- actually solution.
 
-
+#### use macro, Option and `?`'s usage
 
 
 
