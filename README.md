@@ -245,5 +245,7 @@ pubhash_key: [81, 97, 115, 109, 51, 20, 80, 181, 169, 147, 240, 241, 26, 13, 22,
 
 #### mut self can make struct mutabble ?
 
+#### Options solve borrow?
+
 
 [1]:https://www.reddit.com/r/rust/comments/7w3v77/why_is_my_rust_code_100x_slower_than_python/
