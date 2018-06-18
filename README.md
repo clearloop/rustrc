@@ -247,5 +247,41 @@ pubhash_key: [81, 97, 115, 109, 51, 20, 80, 181, 169, 147, 240, 241, 26, 13, 22,
 
 #### Options solve borrow?
 
+#### Tow methods to get public key, from secret key and what?
+
+#### secp256k1 - recover schnorr -> pubkey_from (curve, x, y)
+
+#### Result and Option -> Borrow and ownership
+
+#### How to read a struct from a file in Rust? [example](2)
+
+```rust
+const CONFIG_DATA: &'static [u8] = &[
+  0xfd, 0xb4, 0x50, 0x45, 0xcd, 0x3c, 0x15, 0x71, 0x3c, 0x87, 0xff, 0xe8,
+  0x5d, 0x20, 0xe7, 0x5f, 0x38, 0x05, 0x4a, 0xc4, 0x58, 0x8f, 0xdc, 0x67,
+  0x1d, 0xb4, 0x64, 0xf2, 0xc5, 0x2c, 0x15, 0xd8, 0x9a, 0xae, 0x23, 0x7d,
+  0xce, 0x4b, 0xeb
+];
+```
+
+#### `fn read_struct<T, R: Read>(mut read: R) -> io::Result<T> { ` what is <>??
+
+#### LittleEndian, Endianness;
+
+#### Read/Write bytes into file. buffer bytes format...
+
+```
+    let mut f = File::open("foo")?;
+    let mut _f_buffer = vec![];
+    f.read_to_end(&mut _f_buffer)?;
+```
++ `vec![0;10]` -- can not parse;
++ `vec![0;32]` -- struct doesn't have value;
++ `vec![]` -- actually solution.
+
+
+
+
 
 [1]:https://www.reddit.com/r/rust/comments/7w3v77/why_is_my_rust_code_100x_slower_than_python/
+[2]:https://stackoverflow.com/questions/25410028/how-to-read-a-struct-from-a-file-in-rust

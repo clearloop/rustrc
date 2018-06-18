@@ -314,6 +314,7 @@ _unspent_outputs.remove(&amp;in_txid);
 <h4 id="why-1-first-ripemd160--sha256-checksum">why 1 first, ripemd160 &amp;&amp; sha256. checksum...</h4>
 <h4 id="&#x5E76;&#x4E0D;&#x662F;&#x52A8;&#x6001;&#x7684;&#xFF0C;&#x800C;&#x662F;&#x53E0;&#x52A0;&#x7684;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;how-many-things-can-save-time-do">&#x5E76;&#x4E0D;&#x662F;&#x52A8;&#x6001;&#x7684;&#xFF0C;&#x800C;&#x662F;&#x53E0;&#x52A0;&#x7684;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;how many things can save time do?</h4>
 <h4 id="hashpubkey-version-checksum-address">hash_pubkey, version, checksum, address</h4>
+<h4 id="borrowed-toowned-and-var-toowned">borrowed to_owned and var to_owned</h4>
 <p>Method: </p>
 <pre><code>address = version + hash_pubkey + checksum;
 version = self definedl
@@ -344,7 +345,32 @@ version.append(&amp;<span class="hljs-keyword">mut</span> checksum);
 <pre><code>pubkey_hash: [81, 181, 97, 115, 109, 51, 20, 80, 181, 169, 147, 240, 241, 26, 13, 22, 205, 131, 132, 65]
 version: [0, 81, 181, 97, 115, 109, 51, 20, 80, 181, 169, 147, 240, 241, 26, 13, 22, 205, 131, 132, 65, 115, 168, 105, 177, 115, 215, 185, 22, 45, 53, 195, 219, 58, 6, 171, 73, 147, 111, 193, 78, 249, 112, 160, 175, 71, 221, 116, 214, 138, 56, 219, 27]
 pubhash_key: [81, 97, 115, 109, 51, 20, 80, 181, 169, 147, 240, 241, 26, 13, 22, 205, 131, 132, 65]
+</code></pre><h4 id="rand-in-secp">rand in secp</h4>
+<h4 id="mut-self-can-make-struct-mutabble-">mut self can make struct mutabble ?</h4>
+<h4 id="options-solve-borrow">Options solve borrow?</h4>
+<h4 id="tow-methods-to-get-public-key-from-secret-key-and-what">Tow methods to get public key, from secret key and what?</h4>
+<h4 id="secp256k1---recover-schnorr---pubkeyfrom-curve-x-y">secp256k1 - recover schnorr -&gt; pubkey_from (curve, x, y)</h4>
+<h4 id="result-and-option---borrow-and-ownership">Result and Option -&gt; Borrow and ownership</h4>
+<h4 id="how-to-read-a-struct-from-a-file-in-rust-example">How to read a struct from a file in Rust? <a href="2">example</a></h4>
+<pre><code class="lang-rust"><span class="hljs-keyword">const</span> CONFIG_DATA: &amp;<span class="hljs-symbol">&apos;static</span> [<span class="hljs-keyword">u8</span>] = &amp;[
+  <span class="hljs-number">0xfd</span>, <span class="hljs-number">0xb4</span>, <span class="hljs-number">0x50</span>, <span class="hljs-number">0x45</span>, <span class="hljs-number">0xcd</span>, <span class="hljs-number">0x3c</span>, <span class="hljs-number">0x15</span>, <span class="hljs-number">0x71</span>, <span class="hljs-number">0x3c</span>, <span class="hljs-number">0x87</span>, <span class="hljs-number">0xff</span>, <span class="hljs-number">0xe8</span>,
+  <span class="hljs-number">0x5d</span>, <span class="hljs-number">0x20</span>, <span class="hljs-number">0xe7</span>, <span class="hljs-number">0x5f</span>, <span class="hljs-number">0x38</span>, <span class="hljs-number">0x05</span>, <span class="hljs-number">0x4a</span>, <span class="hljs-number">0xc4</span>, <span class="hljs-number">0x58</span>, <span class="hljs-number">0x8f</span>, <span class="hljs-number">0xdc</span>, <span class="hljs-number">0x67</span>,
+  <span class="hljs-number">0x1d</span>, <span class="hljs-number">0xb4</span>, <span class="hljs-number">0x64</span>, <span class="hljs-number">0xf2</span>, <span class="hljs-number">0xc5</span>, <span class="hljs-number">0x2c</span>, <span class="hljs-number">0x15</span>, <span class="hljs-number">0xd8</span>, <span class="hljs-number">0x9a</span>, <span class="hljs-number">0xae</span>, <span class="hljs-number">0x23</span>, <span class="hljs-number">0x7d</span>,
+  <span class="hljs-number">0xce</span>, <span class="hljs-number">0x4b</span>, <span class="hljs-number">0xeb</span>
+];
 </code></pre>
+<h4 id="fn-readstructt-r-readmut-read-r---ioresultt--what-is-"><code>fn read_struct&lt;T, R: Read&gt;(mut read: R) -&gt; io::Result&lt;T&gt; {</code> what is &lt;&gt;??</h4>
+<h4 id="littleendian-endianness">LittleEndian, Endianness;</h4>
+<h4 id="readwrite-bytes-into-file-buffer-bytes-format">Read/Write bytes into file. buffer bytes format...</h4>
+<pre><code>    let mut f = File::open(&quot;foo&quot;)?;
+    let mut _f_buffer = vec![];
+    f.read_to_end(&amp;mut _f_buffer)?;
+</code></pre><ul>
+<li><code>vec![0;10]</code> -- can not parse;</li>
+<li><code>vec![0;32]</code> -- struct doesn&apos;t have value;</li>
+<li><code>vec![]</code> -- actually solution.</li>
+</ul>
+
                                 
                                 </section>
                             
@@ -383,7 +409,7 @@ pubhash_key: [81, 97, 115, 109, 51, 20, 80, 181, 169, 147, 240, 241, 26, 13, 22,
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Getting Start","level":"1.2","depth":1,"path":"src/getting_start/README.md","ref":"src/getting_start/README.md","articles":[{"title":"Guessing_game","level":"1.2.1","depth":2,"path":"src/guessing_game/README.md","ref":"src/guessing_game/README.md","articles":[]},{"title":"Syntax_Semantics","level":"1.2.2","depth":2,"path":"src/syntax_semantics/README.md","ref":"src/syntax_semantics/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-06-17T11:23:51.392Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-17T11:24:09.106Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Getting Start","level":"1.2","depth":1,"path":"src/getting_start/README.md","ref":"src/getting_start/README.md","articles":[{"title":"Guessing_game","level":"1.2.1","depth":2,"path":"src/guessing_game/README.md","ref":"src/guessing_game/README.md","articles":[]},{"title":"Syntax_Semantics","level":"1.2.2","depth":2,"path":"src/syntax_semantics/README.md","ref":"src/syntax_semantics/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-06-18T13:04:29.386Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-18T13:05:08.471Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

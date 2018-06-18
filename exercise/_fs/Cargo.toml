@@ -1,0 +1,10 @@
+[package]
+name = "_fs"
+version = "0.1.0"
+authors = ["mercury <udtrokia@gmail.com>"]
+
+[dependencies]
+bincode = "1.0.0"
+serde = "1.0.66"
+serde_bytes = "0.10.4"
+serde_derive = "1.0.66"
