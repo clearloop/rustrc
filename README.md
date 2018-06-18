@@ -197,6 +197,8 @@ let signatrue =
 
 #### hash_pubkey, version, checksum, address
 
+#### borrowed to_owned and var to\_owned
+
 Method: 
 ```
 address = version + hash_pubkey + checksum;
@@ -238,5 +240,10 @@ pubkey_hash: [81, 181, 97, 115, 109, 51, 20, 80, 181, 169, 147, 240, 241, 26, 13
 version: [0, 81, 181, 97, 115, 109, 51, 20, 80, 181, 169, 147, 240, 241, 26, 13, 22, 205, 131, 132, 65, 115, 168, 105, 177, 115, 215, 185, 22, 45, 53, 195, 219, 58, 6, 171, 73, 147, 111, 193, 78, 249, 112, 160, 175, 71, 221, 116, 214, 138, 56, 219, 27]
 pubhash_key: [81, 97, 115, 109, 51, 20, 80, 181, 169, 147, 240, 241, 26, 13, 22, 205, 131, 132, 65]
 ```
+
+#### rand in secp
+
+#### mut self can make struct mutabble ?
+
 
 [1]:https://www.reddit.com/r/rust/comments/7w3v77/why_is_my_rust_code_100x_slower_than_python/
