@@ -281,7 +281,11 @@ const CONFIG_DATA: &'static [u8] = &[
 
 #### use macro, Option and `?`'s usage
 
+#### variable || &variable || \*variable || &*
 
+#### struct T { pub content: Type }
+
+#### 100_1000000 the symbol's meaning;
 
 [1]:https://www.reddit.com/r/rust/comments/7w3v77/why_is_my_rust_code_100x_slower_than_python/
 [2]:https://stackoverflow.com/questions/25410028/how-to-read-a-struct-from-a-file-in-rust
