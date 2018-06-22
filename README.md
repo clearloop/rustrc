@@ -287,5 +287,38 @@ const CONFIG_DATA: &'static [u8] = &[
 
 #### 100_1000000 the symbol's meaning;
 
+#### RUST 如何使用其他 struct 的imple, ? 在 enum 中的作用是什么？
+
+#### 
+```
+1. There are outputs that are not linked to inputs.
+2. In one transaction, inputs can reference outputs from multiple transactions.
+3. An input must reference an output.
+```
+
+#### reference
+```
+   = note: expected type `&mut std::vec::Vec<tx::output::TXOutput>`
+              found type `&mut &tx::output::TXOutput`
+              
+```
+
+#### new XXX - XXX::new 两种写法的逻辑解释
+
+#### if not add `self`, can use by ::
+
+#### rust 如何定义空对象？
+
+#### expected *-ptr, found fn item
+
+#### help: `self.left` is a native pointer; try dereferencing it: `(*self.left).data`
+
+#### cannot move out of dereference of raw pointer
+
+#### Box and *const
+
+####  pub fn create_account(self) -> Result<()> {   ---------  std::io::Result;
+
+
 [1]:https://www.reddit.com/r/rust/comments/7w3v77/why_is_my_rust_code_100x_slower_than_python/
 [2]:https://stackoverflow.com/questions/25410028/how-to-read-a-struct-from-a-file-in-rust

@@ -371,6 +371,25 @@ pubhash_key: [81, 97, 115, 109, 51, 20, 80, 181, 169, 147, 240, 241, 26, 13, 22,
 <li><code>vec![]</code> -- actually solution.</li>
 </ul>
 <h4 id="use-macro-option-and-s-usage">use macro, Option and <code>?</code>&apos;s usage</h4>
+<h4 id="variable--variable--variable--">variable || &amp;variable || *variable || &amp;*</h4>
+<h4 id="struct-t--pub-content-type-">struct T { pub content: Type }</h4>
+<h4 id="1001000000-the-symbols-meaning">100_1000000 the symbol&apos;s meaning;</h4>
+<h4 id="rust-&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x5176;&#x4ED6;-struct-&#x7684;imple--&#x5728;-enum-&#x4E2D;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;">RUST &#x5982;&#x4F55;&#x4F7F;&#x7528;&#x5176;&#x4ED6; struct &#x7684;imple, ? &#x5728; enum &#x4E2D;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</h4>
+<h4 id=""> </h4>
+<pre><code>1. There are outputs that are not linked to inputs.
+2. In one transaction, inputs can reference outputs from multiple transactions.
+3. An input must reference an output.
+</code></pre><h4 id="reference">reference</h4>
+<pre><code>   = note: expected type `&amp;mut std::vec::Vec&lt;tx::output::TXOutput&gt;`
+              found type `&amp;mut &amp;tx::output::TXOutput`
+</code></pre><h4 id="new-xxx---xxxnew-&#x4E24;&#x79CD;&#x5199;&#x6CD5;&#x7684;&#x903B;&#x8F91;&#x89E3;&#x91CA;">new XXX - XXX::new &#x4E24;&#x79CD;&#x5199;&#x6CD5;&#x7684;&#x903B;&#x8F91;&#x89E3;&#x91CA;</h4>
+<h4 id="if-not-add-self-can-use-by-">if not add <code>self</code>, can use by ::</h4>
+<h4 id="rust-&#x5982;&#x4F55;&#x5B9A;&#x4E49;&#x7A7A;&#x5BF9;&#x8C61;&#xFF1F;">rust &#x5982;&#x4F55;&#x5B9A;&#x4E49;&#x7A7A;&#x5BF9;&#x8C61;&#xFF1F;</h4>
+<h4 id="expected--ptr-found-fn-item">expected *-ptr, found fn item</h4>
+<h4 id="help-selfleft-is-a-native-pointer-try-dereferencing-it-selfleftdata">help: <code>self.left</code> is a native pointer; try dereferencing it: <code>(*self.left).data</code></h4>
+<h4 id="cannot-move-out-of-dereference-of-raw-pointer">cannot move out of dereference of raw pointer</h4>
+<h4 id="box-and-const">Box and *const</h4>
+<h4 id="pub-fn-createaccountself---result---------------stdioresult">pub fn create_account(self) -&gt; Result&lt;()&gt; {   ---------  std::io::Result;</h4>
 
                                 
                                 </section>
@@ -410,7 +429,7 @@ pubhash_key: [81, 97, 115, 109, 51, 20, 80, 181, 169, 147, 240, 241, 26, 13, 22,
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Getting Start","level":"1.2","depth":1,"path":"src/getting_start/README.md","ref":"src/getting_start/README.md","articles":[{"title":"Guessing_game","level":"1.2.1","depth":2,"path":"src/guessing_game/README.md","ref":"src/guessing_game/README.md","articles":[]},{"title":"Syntax_Semantics","level":"1.2.2","depth":2,"path":"src/syntax_semantics/README.md","ref":"src/syntax_semantics/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-06-18T14:13:55.726Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-18T14:14:20.681Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Getting Start","level":"1.2","depth":1,"path":"src/getting_start/README.md","ref":"src/getting_start/README.md","articles":[{"title":"Guessing_game","level":"1.2.1","depth":2,"path":"src/guessing_game/README.md","ref":"src/guessing_game/README.md","articles":[]},{"title":"Syntax_Semantics","level":"1.2.2","depth":2,"path":"src/syntax_semantics/README.md","ref":"src/syntax_semantics/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-06-20T13:08:51.582Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-22T02:14:12.581Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
