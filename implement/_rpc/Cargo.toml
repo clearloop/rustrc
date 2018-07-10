@@ -1,0 +1,8 @@
+[package]
+name = "_rpc"
+version = "0.1.0"
+authors = ["mercury <udtrokia@gmail.com>"]
+
+[dependencies]
+jsonrpc-core = "8.0.1"
+jsonrpc-tcp-server = "8.0.0"
