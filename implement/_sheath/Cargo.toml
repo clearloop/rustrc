@@ -1,0 +1,33 @@
+[package]
+name = "_sheath"
+version = "0.1.0"
+authors = ["mercury <udtrokia@gmail.com>"]
+
+[dependencies]
+clap = { version = "2", features = ["yaml"] }
+log = "0.4"
+env_logger = "0.5"
+
+logs = { path = "logs" }
+
+[profile.dev]
+debug = true
+panic = 'abort'
+
+[profile.release]
+debug = true
+panic = 'abort'
+
+[profile.test]
+debug = true
+panic = 'abort'
+
+[profile.doc]
+debug = true
+
+[[bin]]
+path = "sheath/main.rs"
+name = "sheath"
+
+[workspace]
+member = ["bencher"]
