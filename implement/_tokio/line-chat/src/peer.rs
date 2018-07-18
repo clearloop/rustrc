@@ -11,7 +11,7 @@ use super::futures::sync::mpsc;
 // Shorthand for the receive half of the message channel.
 type Rx = super::futures::sync::mpsc::UnboundedReceiver<Bytes>;
 
-struct Peer {
+pub struct Peer {
     /// Name of the peer. This is the first line received from the client.
     name: BytesMut,
 
@@ -36,7 +36,7 @@ struct Peer {
 }
 
 impl Peer {
-    fn new(
+    pub fn new(
         name: BytesMut,
         state: Arc<Mutex<Shared>>,
         lines: Lines
