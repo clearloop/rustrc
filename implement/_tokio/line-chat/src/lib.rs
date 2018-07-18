@@ -1,7 +1,8 @@
+pub extern crate tokio;
 #[macro_use]
 pub extern crate futures;
 pub extern crate bytes;
-pub extern crate tokio;
+
     
 pub mod shared;
 pub mod lines;

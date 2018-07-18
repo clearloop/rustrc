@@ -6,7 +6,7 @@ use super::bytes::{BytesMut, BufMut};
 
 
 pub struct Lines {
-    socket: TcpStream,
+    pub socket: TcpStream,
     rd: BytesMut,
     wr: BytesMut,
 }
@@ -77,14 +77,14 @@ impl Lines {
 }
 
 impl Lines {
-    fn buffer(&mut self, line: &[u8]) {
+    pub fn buffer(&mut self, line: &[u8]) {
         // Push the line onto the end of the write buffer.
         //
         // The `put` function is from the `BufMut` trait.
         self.wr.put(line);
     }
 
-    fn poll_flush(&mut self) -> Poll<(), Error> {
+    pub fn poll_flush(&mut self) -> Poll<(), Error> {
         // As long as there is buffered data to write, try to write it.
         while !self.wr.is_empty() {
             // Try to read some bytes from the socket

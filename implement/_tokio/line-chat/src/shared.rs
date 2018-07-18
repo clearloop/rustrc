@@ -7,7 +7,7 @@ use super::Tx;
 
 #[derive(Clone)]
 pub struct Shared {
-    peers: HashMap<SocketAddr, Tx>,
+    pub peers: HashMap<SocketAddr, Tx>,
 }
 
 impl Shared{
