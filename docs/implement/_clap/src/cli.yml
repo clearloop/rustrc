@@ -1,0 +1,20 @@
+name: tachion
+version: "0.1.0"
+author: <Blockheaders>
+about: It is simple to use.
+args:
+    - config:
+        short: c
+        long: config
+        value_name: FILE
+        help: Sets a custom config file
+        takes_value: true
+subcommands:
+    - test:
+        about: controls testing features
+        version: "0.1.0"
+        author: mercury <udtrokia@gmail.com>
+        args:
+          - debug:
+                short: d
+                help: print debug information

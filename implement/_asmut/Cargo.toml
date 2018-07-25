@@ -1,7 +1,6 @@
 [package]
-name = "runtime"
+name = "_asmut"
 version = "0.1.0"
 authors = ["mercury <udtrokia@gmail.com>"]
 
 [dependencies]
-tokio = "0.1"

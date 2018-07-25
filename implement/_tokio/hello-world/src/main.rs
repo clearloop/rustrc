@@ -11,6 +11,14 @@ fn main() {
     let _server = listener.incoming().for_each(|socket| {
         println!("accepted socket; addr={:?}", socket.peer_addr().unwrap());
 
+        let connection = io::write_all(socket, "hello world\n")
+            .then(|res| {
+                println!("wrote message; success={:?}", res.is_ok());
+                Ok(())
+            });
+
+        // Spawn a new task that processes the socket;
+        tokio::spawn(connection);
         Ok(())
     }).map_err(|err| {
         println!("accept error = {:?}", err);

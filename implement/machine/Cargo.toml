@@ -9,6 +9,7 @@ log = "0.4"
 env_logger = "0.5"
 
 logs = { path = "logs" }
+rpc = { path = "rpc" }
 
 [profile.dev]
 debug = true
