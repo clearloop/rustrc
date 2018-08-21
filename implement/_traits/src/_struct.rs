@@ -1,6 +1,6 @@
-use feature::HasArea;
+use concrete::HasArea;
 
-struct Circle {
+pub struct Circle {
     x: f64,
     y: f64,
     radius: f64,
@@ -13,7 +13,7 @@ impl HasArea for Circle {
     }
 }
 
-pub fn test_feature() {
+pub fn test_concrete() {
     let c = Circle {
         x: 0.0_f64,
         y: 0.0_f64,
@@ -23,9 +23,11 @@ pub fn test_feature() {
     println!("circle c has an area of {}", c.area());
 }
 
+
 mod test{
+    use::_struct::test_concrete;
     #[test]
     fn it_works() {
-        test_feature();
+        test_concrete();
     }
 }
