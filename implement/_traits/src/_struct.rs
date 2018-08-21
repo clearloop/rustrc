@@ -1,8 +1,8 @@
 use concrete::HasArea;
+use default::{Foo, FooBar};
+
 
 pub struct Circle {
-    x: f64,
-    y: f64,
     radius: f64,
 }
 
@@ -13,19 +13,33 @@ impl HasArea for Circle {
     }
 }
 
-pub fn test_concrete() {
-    let c = Circle {
-        x: 0.0_f64,
-        y: 0.0_f64,
-        radius: 1.0_f64,
-    };
-
-    println!("circle c has an area of {}", c.area());
+impl Foo for Circle {
+    fn is_valid(&self) -> bool {
+        true
+    }
 }
 
+impl FooBar for Circle {
+    fn foobar(&self) {
+        println!("foobar...")
+    }
+}
 
+pub fn test_concrete() {
+    let c = Circle {
+        radius: 1.0_f64,
+    };
+    c.foobar();
+    
+    println!("valid {:?}", c.is_valid());
+    println!("valid {:?}", c.is_invalid());        
+    println!("circle c has an area of {}", c.area());
+
+}
+
+#[cfg(test)]
 mod test{
-    use::_struct::test_concrete;
+    use _struct::test_concrete;
     #[test]
     fn it_works() {
         test_concrete();

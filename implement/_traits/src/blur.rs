@@ -12,6 +12,7 @@ pub fn bar<T, K>(x: T, y: K) where T: Debug, K: Clone + Debug {
     println!("{:?}", y);
 }
 
+#[cfg(test)]
 mod test{
     use blur::*;
     #[test]
