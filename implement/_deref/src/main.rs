@@ -14,7 +14,7 @@ struct DerefExapmle {
 
 impl Deref for DerefExapmle {
     type Target = Actor;
-
+    // &Actor
     fn deref(&self) -> &Self::Target {
         &self.a
     }
