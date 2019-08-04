@@ -1,0 +1,93 @@
+use tokio_io::{ AsyncRead, AsyncWrite };
+use libp2p::swarm::{
+    ProtocolsHandler,
+    ProtocolsHandlerEvent,
+    ProtocolsHandlerUpgrErr,
+    KeepAlive,
+    SubstreamProtocol,
+    NetworkBehaviourAction,
+};
+use void::Void;
+use futures::Async;
+use std::io::Error;
+use std::result::Result;
+use std::marker::PhantomData;
+use std::collections::VecDeque;
+use super::error::NetworkError;
+use super::protocol::Hello;
+
+#[allow(dead_code)]
+#[derive(Default)]
+pub struct Handler<TSubStream> {
+    pending_results: VecDeque<Result<&'static [u8], NetworkError>>,
+    marker: PhantomData<TSubStream>
+}
+
+impl<TSubStream> Handler<TSubStream>
+where TSubStream: AsyncRead + AsyncWrite {
+    pub fn new() -> Self {
+        Handler {
+            pending_results: VecDeque::new(),
+            marker: PhantomData
+        }
+    }
+}
+
+impl<TSubStream> ProtocolsHandler for Handler<TSubStream>
+where TSubStream: AsyncRead + AsyncWrite {
+    type InEvent = &'static [u8];
+    type OutEvent = &'static [u8];
+    type Error = NetworkError;
+    type Substream = TSubStream;
+    type InboundProtocol = Hello;
+    type OutboundProtocol = Hello;
+    type OutboundOpenInfo = &'static [u8];
+
+    fn listen_protocol(&self) -> SubstreamProtocol<Hello> {
+        println!("[handler]: listen protocol...");
+        SubstreamProtocol::new(Hello)
+    }
+
+    fn inject_fully_negotiated_inbound(&mut self, info: &'static [u8]) {
+        println!("[handler]: inject fully neegotiiatted inbound");
+        self.pending_results.push_front(Ok(info))
+    }
+
+    fn inject_fully_negotiated_outbound(&mut self, _in: &'static [u8], info: &'static [u8]) {
+        println!("[handler]: inject fully neegotiiatted outbound");
+        self.pending_results.push_front(Ok(info));
+    }
+
+    fn inject_event(&mut self, _: &'static [u8]) {
+        println!("[handler]: inject event...");
+    }
+
+    fn connection_keep_alive(&self) -> KeepAlive {
+        KeepAlive::Yes
+    }
+
+    fn inject_dial_upgrade_error(&mut self, info: &'static [u8], error: ProtocolsHandlerUpgrErr<Error>) {
+        println!("[handler]: inject dial upgrade error: {:?}", String::from_utf8(info.to_vec()).unwrap());
+        self.pending_results.push_front(
+            Err(
+                match error {
+                    ProtocolsHandlerUpgrErr::Timeout => NetworkError::Timeout,
+                    e => NetworkError::Other { error: Box::new(e) }
+            })
+        )
+    }
+    
+    fn poll(&mut self) -> Result<Async<ProtocolsHandlerEvent<Hello, &'static [u8], &'static [u8]>>, Self::Error> {
+        println!("[handler]: poll...");
+        if let Some(_e) = self.pending_results.pop_back() {
+            println!("ok");
+            Ok(Async::Ready(ProtocolsHandlerEvent::Custom(b"hello, world")))
+        } else {
+            let protocol = SubstreamProtocol::new(Hello);
+            Ok(Async::Ready(ProtocolsHandlerEvent::OutboundSubstreamRequest{
+                protocol,
+                info: b"handler info"
+            }))
+        }
+    }
+}
